@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Simple Calculator</title>
+    <title>Enhanced Calculator</title>
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -15,7 +15,7 @@
         margin: 0;
       }
       .calculator {
-        width: 300px;
+        width: 320px;
         padding: 20px;
         background-color: #fff;
         border-radius: 10px;
@@ -127,8 +127,23 @@
           +
         </button>
 
+        <button
+          type="button"
+          class="button operator"
+          onclick="display.value += '%'"
+        >
+          %
+        </button>
+        <button type="button" class="button" onclick="backspace()">⌫</button>
         <button type="reset" class="button clear">C</button>
       </div>
     </form>
+
+    <script>
+      function backspace() {
+        const display = document.getElementById("display");
+        display.value = display.value.slice(0, -1);
+      }
+    </script>
   </body>
 </html>
