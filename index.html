@@ -83,6 +83,7 @@
 
         <button class="button clear" onclick="clearDisplay()">C</button>
         <button class="button operator" onclick="backspace()">⌫</button>
+        <button class="button operator" onclick="calculateSqrt()">√</button>
       </div>
     </div>
 
@@ -117,6 +118,20 @@
       function backspace() {
         const display = document.getElementById("display");
         display.value = display.value.slice(0, -1);
+      }
+
+      function calculateSqrt() {
+        const display = document.getElementById("display");
+        try {
+          const value = parseFloat(display.value);
+          if (value < 0) {
+            display.value = "Error";
+          } else {
+            display.value = Math.sqrt(value).toString();
+          }
+        } catch {
+          display.value = "Error";
+        }
       }
     </script>
   </body>
